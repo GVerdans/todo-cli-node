@@ -1,20 +1,6 @@
 const chalk = require("chalk");
 const db = require("../Database");
-const readline = require("readline");
-
-function question(quest) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-
-    return new Promise((resolve) => {
-        rl.question(quest, (resposta) => {
-            rl.close();
-            resolve(resposta.trim());
-        });
-    });
-}
+const question = require("../../utils/prompt");
 
 async function done(taskId) {
     if (!taskId) {

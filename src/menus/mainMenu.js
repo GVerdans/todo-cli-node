@@ -44,7 +44,7 @@ async function menu() {
 
             default:
                 console.clear();
-                console.log("Inalid Option !");
+                console.log("Invalid Option !");
                 break;
         }
     }

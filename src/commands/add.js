@@ -1,28 +1,14 @@
 const db = require("../Database"); // CommonJS
-const readline = require("readline"); // CommonJS
-
-function question(quest) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-
-    return new Promise((resolve) => {
-        rl.question(quest, (resposta) => {
-            rl.close();
-            resolve(resposta.trim());
-        });
-    });
-}
+const question = require("../../utils/prompt");
 
 async function addTask(task) {
     try {
         if (!task) {
-            task = await question("Digite a task: \n");
+            task = await question("Insert a task: \n");
         }
 
         if (!task) {
-            console.log("Tarefa inválida !");
+            console.log("Invalid Task !");
             return;
         }
 
@@ -34,9 +20,9 @@ async function addTask(task) {
         );
 
         const result = stmt.run(task);
-        console.log(`Task: ${task}, criada !`);
+        console.log(`Task: ${task}, Created !`);
     } catch (err) {
-        console.log(`Erro ao criar task: `, err.message);
+        console.log(`Error to create task: `, err.message);
     }
 }
 module.exports = addTask; // CommonJS
