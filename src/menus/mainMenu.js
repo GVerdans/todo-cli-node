@@ -18,23 +18,23 @@ async function menu() {
         switch (opcao) {
             case "1":
                 console.clear();
-                await commands.add();
+                await commands.add(undefined, lista);
                 break;
             case "2":
                 console.clear();
                 commands.list(lista);
-                await commands.remove();
+                await commands.remove(undefined, lista);
                 break;
 
             case "3":
                 console.clear();
                 commands.list(lista);
-                await commands.done();
+                await commands.done(undefined, lista);
                 break;
 
             case "4":
                 console.clear();
-                await commands.removeAll();
+                await commands.removeAll(lista);
                 break;
 
             case "5":
@@ -42,10 +42,10 @@ async function menu() {
                 await commands.createNewList();
                 break;
 
-            // case 6:
-            //     console.clear()
-            //     await ...
-            // break;
+            case "6":
+                console.clear();
+                lista = await commands.switchList(lista);
+                break;
 
             case "0":
                 console.clear();

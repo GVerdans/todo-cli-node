@@ -1,7 +1,7 @@
 const db = require("../Database"); // CommonJS
 const question = require("../../utils/prompt");
 
-async function addTask(task) {
+async function addTask(task, list = "tasks") {
     try {
         if (!task) {
             task = await question("Insert a task: \n");
@@ -14,12 +14,12 @@ async function addTask(task) {
 
         const stmt = db.prepare(
             `
-            INSERT INTO tasks (title)
+            INSERT INTO ${list} (title)
             VALUES (?)
             `,
         );
 
-        const result = stmt.run(task);
+        stmt.run(task);
         console.log(`Task: ${task}, Created !`);
     } catch (err) {
         console.log(`Error to create task: `, err.message);

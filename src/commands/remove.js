@@ -2,12 +2,12 @@ const db = require("../Database");
 const chalk = require("chalk");
 const question = require("../../utils/prompt");
 
-async function remove(taskId) {
+async function remove(taskId, list = "tasks") {
     if (!taskId) {
         taskId = await question("Enter the Task ID to Remove: ");
     }
 
-    const task = db.prepare(`SELECT * FROM tasks WHERE id = ?`).get(taskId);
+    const task = db.prepare(`SELECT * FROM ${list} WHERE id = ?`).get(taskId);
 
     if (!task) {
         console.log("Task not Found !");
@@ -16,7 +16,7 @@ async function remove(taskId) {
 
     db.prepare(
         `
-        DELETE FROM tasks WHERE id = ?`,
+        DELETE FROM ${list} WHERE id = ?`,
     ).run(taskId);
 
     return console.log(chalk.bgRed(`Task: ${taskId} Removed !`));

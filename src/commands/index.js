@@ -5,4 +5,5 @@ module.exports = {
     remove: require("./remove"),
     removeAll: require("./removeAll"),
     createNewList: require("./createnewlist"),
+    switchList: require("./switchlist"),
 };
