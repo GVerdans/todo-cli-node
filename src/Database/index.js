@@ -16,6 +16,10 @@ function init() {
 }
 
 function newList(nomeTable) {
+    if (!nomeTable || !/^[A-Za-z0-9_]+$/.test(nomeTable)) {
+        throw new Error("Invalid list name");
+    }
+
     db.exec(`CREATE TABLE IF NOT EXISTS ${nomeTable} (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
@@ -24,6 +28,8 @@ function newList(nomeTable) {
         );
         `);
 }
+
+db.newList = newList;
 
 init();
 

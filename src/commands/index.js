@@ -4,4 +4,5 @@ module.exports = {
     done: require("./done"),
     remove: require("./remove"),
     removeAll: require("./removeAll"),
+    createNewList: require("./createnewlist"),
 };

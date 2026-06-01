@@ -2,11 +2,16 @@ const commands = require("../commands");
 const { mainMenu } = require("../ui/menus"); // UI
 const question = require("../../utils/prompt");
 
+let lista = null;
 async function menu() {
     console.clear();
+    if (!lista) {
+        lista = "tasks";
+    }
+
     while (true) {
         mainMenu();
-        commands.list();
+        commands.list(lista);
 
         const opcao = await question("Select an option: \n\n");
 
@@ -17,13 +22,13 @@ async function menu() {
                 break;
             case "2":
                 console.clear();
-                commands.list();
+                commands.list(lista);
                 await commands.remove();
                 break;
 
             case "3":
                 console.clear();
-                commands.list();
+                commands.list(lista);
                 await commands.done();
                 break;
 
@@ -32,17 +37,15 @@ async function menu() {
                 await commands.removeAll();
                 break;
 
-            // Criar nova todo list
             case "5":
                 console.clear();
-                await commands.removeAll();
+                await commands.createNewList();
                 break;
 
-
-            case 6:
-                console.clear()
-                await ...
-            break;
+            // case 6:
+            //     console.clear()
+            //     await ...
+            // break;
 
             case "0":
                 console.clear();

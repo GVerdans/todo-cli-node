@@ -1,9 +1,9 @@
 const db = require("../Database"); // CommonJS
 const chalk = require("chalk");
 
-function list() {
+function list(list) {
     const stmt = db.prepare(`
-        SELECT * FROM tasks ORDER BY created_at DESC
+        SELECT * FROM ${list} ORDER BY created_at DESC
     `);
 
     const tasks = stmt.all();
