@@ -11,8 +11,9 @@ function mainMenu() {
                     | 1. Add Task                 |
                     | 2. Delete Task              |
                     | 3. (Un)Complete Task        |
-                    |                             |
                     | 4. Remove All               |
+                    | 5. Create new List          |
+                    | 6. Change List              |
                     |                             |
                     ===============================
                     | 0. Exit                     |

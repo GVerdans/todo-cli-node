@@ -32,10 +32,17 @@ async function menu() {
                 await commands.removeAll();
                 break;
 
+            // Criar nova todo list
             case "5":
                 console.clear();
                 await commands.removeAll();
                 break;
+
+
+            case 6:
+                console.clear()
+                await ...
+            break;
 
             case "0":
                 console.clear();

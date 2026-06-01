@@ -9,7 +9,7 @@ function list() {
     const tasks = stmt.all();
 
     if (tasks.length == 0) {
-        console.log(chalk.bgRed("             No Tasks !\n\n"));
+        console.log(chalk.bgRed("No Tasks !\n\n"));
     } else {
         tasks.forEach((task) => {
             if (task.done == 0) {

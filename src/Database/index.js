@@ -15,6 +15,16 @@ function init() {
         `);
 }
 
+function newList(nomeTable) {
+    db.exec(`CREATE TABLE IF NOT EXISTS ${nomeTable} (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        done INTEGER DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+        `);
+}
+
 init();
 
 module.exports = db;
